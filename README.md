@@ -1,4 +1,4 @@
-# assembly-why-not
+# asm-workspace
 
 A hands-on learning repository for x86 and x86-64 assembly on Linux.
 
