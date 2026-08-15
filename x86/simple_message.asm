@@ -3,6 +3,9 @@ section .data
     len equ $-msg                             ; length of the string
     s2 times 9 db '*'                         ; times is a directive
         db 0xa                                ; for a line feed at the end
+
+
+section .text
     global _start   ; declared for linker
 
 _start:             ; tells linker that this is the entry point
