@@ -5,6 +5,7 @@ A hands-on learning repository for x86 and x86-64 assembly on Linux.
 This repository is my assembly journey: practical examples, notes, and small projects that demonstrate assembly programming on Linux for both 32-bit (x86) and 64-bit (x86-64) environments. The goal is to learn how programs are built at the instruction level, how calling conventions work, how the system interface is used, and how to debug and optimize low-level code.
 
 Table of contents
+
 - About
 - Goals
 - Prerequisites
@@ -22,6 +23,7 @@ About
 This repo collects small, focused examples and notes to help me (and others) learn assembly programming on Linux. Examples range from "hello world" and syscalls to function calls, stack frames, string processing, and simple algorithms implemented in assembly.
 
 Goals
+
 - Learn the basics of x86 and x86-64 instruction sets.
 - Understand calling conventions (cdecl, System V AMD64).
 - Practice assembling, linking, and debugging assembly programs on Linux.
@@ -29,11 +31,13 @@ Goals
 - Build small projects that demonstrate optimization and low-level programming techniques.
 
 Prerequisites
+
 - A Linux distribution (Ubuntu, Fedora, Arch, etc.).
 - Basic familiarity with C and the command line.
 - Tools: nasm or yasm (assembler), gcc (linker), ld (linker), gdb (debugger), strace (optional).
 
 Tooling
+
 - nasm — popular assembler: sudo apt install nasm
 - yasm — alternative assembler: sudo apt install yasm
 - gcc / binutils — for linking and creating executables: sudo apt install build-essential
@@ -53,11 +57,14 @@ x86 (32-bit) example using nasm + gcc:
 
    gcc -m32 -nostartfiles -o hello hello.o
 
+   ld -m elf_i386 hello.o -o hello
+
 4. Run:
 
    ./hello
 
 Notes:
+
 - The -m32 flag tells gcc to produce a 32-bit binary. You may need multilib packages installed on your system.
 - For direct syscall usage in 32-bit, use int 0x80 or the appropriate syscall instruction depending on the ABI.
 
@@ -77,13 +84,15 @@ x86-64 (64-bit) example using nasm + gcc (System V AMD64):
    ./hello
 
 Notes:
+
 - On x86-64, the System V AMD64 calling convention is used on most Linux distributions (first integer/pointer args in RDI, RSI, RDX, RCX, R8, R9; return value in RAX).
 - Use -no-pie if you want a traditional non-PIE binary for easier addresses in examples.
 
 Debugging
+
 - Use gdb to inspect registers, step instructions, and examine memory:
 
-   gdb ./hello
+  gdb ./hello
 
 - Use objdump -d hello.o or objdump -d hello to disassemble and inspect the generated code.
 
@@ -98,6 +107,7 @@ Project structure (suggested)
 - experiments/ — longer experiments or small projects
 
 Contributing
+
 - This repository is primarily for my personal learning, but contributions or suggestions are welcome.
 - If you add an example, please include:
   - A short description of what it demonstrates.
@@ -105,6 +115,7 @@ Contributing
   - Any special notes about platform or dependencies.
 
 Resources
+
 - Intel/AMD manuals for instruction set reference
 - "Programming from the Ground Up" — beginner-friendly assembly book (Linux/x86-centric)
 - Linux man pages (syscall, asm)
@@ -114,9 +125,10 @@ Resources
 License
 MIT — see LICENSE file for details.
 
-----
+---
 
 Happy hacking! If you'd like, I can also:
+
 - Populate the repository with a few starter examples (hello world, simple syscall, function call),
 - Add build scripts and a small CONTRIBUTING.md, or
 - Create a quick cheatsheet for common instructions and calling convention notes.
