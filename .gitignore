@@ -1,8 +1,12 @@
-# Object files
-*.o
-
-# Executables
+# Ignore everything
 *
+
+# But allow directories so Git can traverse them
+!*/
+
+# Allow ASM files
 !*.asm
+
+# Allow these files
 !.gitignore
 !README.md
